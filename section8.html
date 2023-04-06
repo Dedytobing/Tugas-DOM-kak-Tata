@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Program Sederhana Checkbox dan Radio Button</title>
+	<style>
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		#log {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h2>Pilihan Jenis Kelamin</h2> <!-- radio button jenis kelamin -->
+	<label><input type="radio" name="gender" value="Laki-laki" onclick="tambahLog('Kamu berjenis kelamin Laki-laki')" checked> Laki-laki</label>
+	<label><input type="radio" name="gender" value="Perempuan" onclick="tambahLog('Kamu berjenis kelamin Perempuan')"> Perempuan</label>
+
+	<h2>Pilihan Bahasa Pemrograman</h2> <!-- checkbox bahasa pemrograman -->
+	<label><input type="checkbox" name="programming" value="Javascript" onclick="tambahLog('Kamu memilih Javascript')"> Javascript</label>
+	<label><input type="checkbox" name="programming" value="HTML" onclick="tambahLog('Kamu memilih HTML')"> HTML</label>
+	<label><input type="checkbox" name="programming" value="CSS" onclick="tambahLog('Kamu memilih CSS')"> CSS</label>
+	<div id="log"></div>
+
+	<script>
+		function tambahLog(teks) {
+			var log = document.getElementById("log");
+			if (teks.indexOf("Laki-laki") !== -1 || teks.indexOf("Perempuan") !== -1) {
+				log.innerHTML = teks + "<br>";
+			} else {
+				var checkboxes = document.querySelectorAll('input[name="programming"]');
+				var checkedCheckboxes = Array.prototype.slice.call(checkboxes).filter(function(checkbox) {
+					return checkbox.checked;
+				});
+
+				if (checkedCheckboxes.length === 0) {
+					log.innerHTML = "";
+				} else {
+					log.innerHTML += teks + "<br>";
+				}
+			}
+		}
+	</script>
+</body>
+</html>
