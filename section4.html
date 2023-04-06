@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Section 4</title>
+  </head>
+  <body>
+    <h3>Perkenalan diri</h3>
+    <ul id="dataDiri"></ul>
+    <button onclick="spill(); this.style.display = 'none';">Spill Dong!</button>
+    <script>
+      //=== createElement
+      function spill() {
+        var itemDataBaru = document.createElement("li");
+        itemDataBaru.innerHTML = "Hallo,";
+
+        var infoDataBaru = document.createTextNode(
+          " Perkenalkan Nama Saya Dedy Kristianto Lumbantobing"
+        );
+        itemDataBaru.appendChild(infoDataBaru);
+
+        var listData = document.getElementById("dataDiri");
+        listData.appendChild(itemDataBaru);
+      }
+    </script>
+  </body>
+</html>
