@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section 5</title>
+  </head>
+  <body>
+    <h3 id="judul">Daftar Motor</h3>
+    <ul id="daftar-motor">
+      <li data-motor="Honda">Honda</li>
+      <li data-motor="Yamaha">Yamaha</li>
+      <li data-motor="Suzuki">Suzuki</li>
+    </ul>
+    <br />
+    <button onclick="tampilkanMotor()">Tampilkan Data Motor</button>
+    <script>
+      function tampilkanMotor() {
+        var listMotor = document.getElementById("daftar-motor");
+
+        var itemPertama = document.querySelector("li:nth-child(2)");
+        var dataMotor = itemPertama.getAttribute("data-motor");
+
+        alert("Motor kamu adalah : " + dataMotor);
+
+        itemPertama.setAttribute("style", "color: skyblue;");
+      }
+    </script>
+  </body>
+</html>
