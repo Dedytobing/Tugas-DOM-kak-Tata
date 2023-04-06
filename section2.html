@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Section 2</title>
+    <style>
+      .Dedy {
+        color: skyblue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="hero">Biodata Saya</h1>
+    <ul id="menu">
+      <li class="bio">Dedy</li>
+      <li class="bio">Lumbantobing</li>
+      <li class="bio">20 Tahun</li>
+      <li class="bio">Pematangsiantar</li>
+    </ul>
+
+    <p>Pilih Merek Motor</p>
+    <p>
+      <label for="motorSupra">
+        <input type="radio" name="rate" value="Honda" id="honda" /> Honda
+      </label>
+      <label for="motorYamaha">
+        <input type="radio" name="rate" value="Yamaha" id="yamaha" /> Yamaha
+      </label>
+      <label for="motorSuzuki">
+        <input type="radio" name="rate" value="Suzuki" id="suzuki" /> Suzuki
+      </label>
+    </p>
+    <p>
+      <button id="btnRate">Submit</button>
+    </p>
+    <p id="output"></p>
+
+    <script>
+      // GET ELEMENT BY ID
+      const h1 = document.getElementById("hero");
+      console.log(h1);
+
+      // GET ELEMENT BY NAME
+      let btn = document.getElementById("btnRate");
+      let output = document.getElementById("output");
+
+      btn.addEventListener("click", () => {
+        let rates = document.getElementsByName("rate");
+        rates.forEach((rate) => {
+          if (rate.checked) {
+            output.innerText = `Motor Kamu adalah ${rate.value}`;
+          }
+        });
+      });
+
+      // GET ELEMENT BY CLASS NAME
+      let menu = document.getElementById("menu");
+      let items = menu.getElementsByClassName("bio");
+      let data = [].map.call(items, (item) => item.textContent);
+      console.log(data);
+
+      // JavaScript querySelector
+      var judul = document.querySelector("#hero");
+      judul.textContent = "Mengisi Biodata";
+      judul.classList.add("Dedy");
+    </script>
+  </body>
+</html>
